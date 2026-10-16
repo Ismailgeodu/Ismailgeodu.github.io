@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Md Ismail Hossain — Geospatial Data Analyst &amp; GeoAI Researcher</title>
+<meta name="description" content="Portfolio of Md Ismail Hossain, geospatial data analyst and GIS/GeoAI developer based in Dhaka, Bangladesh.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #EDE8DA;
+    --paper-dim: #E2DBC6;
+    --ink: #1B2E2B;
+    --ink-soft: #3C4E49;
+    --teal: #2F6459;
+    --teal-deep: #1F433B;
+    --ochre: #B98B3E;
+    --rust: #8B4A3D;
+    --line: #C9BFA6;
+    --line-soft: #DAD2BA;
+    --paper-rgb: 237,232,218;
+    --max: 920px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Serif', serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--ochre); color:var(--paper);}
+  a{color:var(--teal-deep);}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 28px;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  h1,h2,h3{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    margin:0;
+    color:var(--teal-deep);
+  }
+  p{margin:0 0 14px;}
+  .rule{
+    height:1px;
+    background:repeating-linear-gradient(90deg, var(--line) 0 6px, transparent 6px 11px);
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(var(--paper-rgb),0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:56px;
+  }
+  nav .brand{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600; font-size:14.5px; color:var(--ink);
+    text-decoration:none;
+  }
+  nav .brand span{color:var(--ochre);}
+  nav ul{
+    list-style:none; display:flex; gap:22px; margin:0; padding:0;
+    font-family:'IBM Plex Mono', monospace; font-size:12px;
+    text-transform:uppercase; letter-spacing:0.06em;
+  }
+  nav a{color:var(--ink-soft); text-decoration:none; padding:4px 0; border-bottom:1px solid transparent;}
+  nav a:hover{border-bottom:1px solid var(--ochre); color:var(--teal-deep);}
+  .nav-toggle{display:none;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:96px 0 76px;
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+  }
+  .hero .wrap{position:relative; z-index:2;}
+  .hero svg.contours{
+    position:absolute; inset:0; width:100%; height:100%;
+    z-index:1; opacity:0.55;
+  }
+  .stamp{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono', monospace; font-size:11.5px;
+    letter-spacing:0.08em; color:var(--teal-deep);
+    border:1px solid var(--teal-deep);
+    padding:5px 11px; border-radius:2px;
+    background:rgba(var(--paper-rgb),0.75);
+  }
+  .stamp .dot{width:6px; height:6px; border-radius:50%; background:var(--rust);}
+  .hero h1{
+    font-size:clamp(36px, 6vw, 58px);
+    line-height:1.05;
+    margin:22px 0 8px;
+    max-width:11ch;
+  }
+  .hero .role{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:clamp(16px, 2vw, 20px);
+    color:var(--rust);
+    font-weight:500;
+    margin-bottom:20px;
+  }
+  .hero .lede{
+    max-width:62ch;
+    font-size:17px;
+    color:var(--ink-soft);
+  }
+  .hero .links{
+    display:flex; flex-wrap:wrap; gap:12px;
+    margin-top:26px;
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px;
+  }
+  .btn{
+    display:inline-flex; align-items:center; gap:6px;
+    padding:10px 16px;
+    border:1px solid var(--ink);
+    text-decoration:none;
+    color:var(--ink);
+    background:transparent;
+    letter-spacing:0.03em;
+    transition:background .15s ease, color .15s ease;
+  }
+  .btn:hover{background:var(--ink); color:var(--paper);}
+  .btn.primary{background:var(--teal-deep); color:var(--paper); border-color:var(--teal-deep);}
+  .btn.primary:hover{background:var(--rust); border-color:var(--rust);}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:64px 0;}
+  section + section{border-top:1px solid var(--line);}
+  .head-row{
+    display:flex; align-items:baseline; justify-content:space-between;
+    margin-bottom:34px; gap:20px; flex-wrap:wrap;
+  }
+  .head-row h2{font-size:26px;}
+  .head-row .idx{
+    font-family:'IBM Plex Mono', monospace; color:var(--line);
+    font-size:13px;
+  }
+
+  /* ---------- ABOUT / STATS ---------- */
+  .about-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:44px;}
+  .stat-legend{
+    border:1px solid var(--line);
+    background:var(--paper-dim);
+  }
+  .stat{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding:14px 16px;
+    border-bottom:1px dashed var(--line);
+    font-family:'IBM Plex Mono', monospace;
+  }
+  .stat:last-child{border-bottom:none;}
+  .stat .n{font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:20px; color:var(--rust);}
+  .stat .l{font-size:11.5px; text-transform:uppercase; letter-spacing:0.05em; color:var(--ink-soft); text-align:right;}
+
+  /* ---------- SKILLS ---------- */
+  .skill-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+    gap:1px; background:var(--line); border:1px solid var(--line);
+  }
+  .skill-card{background:var(--paper); padding:20px 18px;}
+  .skill-card .swatch{width:10px; height:10px; margin-bottom:10px; background:var(--ochre);}
+  .skill-card h3{font-size:14.5px; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:8px;}
+  .skill-card p{font-size:13.5px; color:var(--ink-soft); margin:0;}
+
+  /* ---------- EXPERIENCE TIMELINE ---------- */
+  .route{position:relative; padding-left:26px;}
+  .route::before{
+    content:""; position:absolute; left:5px; top:6px; bottom:6px; width:1px;
+    background:repeating-linear-gradient(180deg, var(--teal) 0 5px, transparent 5px 9px);
+  }
+  .waypoint{position:relative; padding-bottom:40px;}
+  .waypoint:last-child{padding-bottom:0;}
+  .waypoint::before{
+    content:""; position:absolute; left:-26px; top:5px;
+    width:11px; height:11px; border-radius:50%;
+    background:var(--paper); border:2px solid var(--rust);
+  }
+  .wp-head{display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px; align-items:baseline;}
+  .wp-head h3{font-size:17.5px;}
+  .wp-org{font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--ink-soft);}
+  .wp-date{font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--ochre); white-space:nowrap;}
+  .wp-body ul{margin:10px 0 0; padding-left:18px;}
+  .wp-body li{margin-bottom:6px; font-size:14.5px; color:var(--ink-soft);}
+
+  /* ---------- PROJECTS ---------- */
+  .project-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:20px;}
+  .sheet{
+    border:1px solid var(--ink); position:relative; padding:20px 18px 18px;
+    background:var(--paper-dim);
+  }
+  .sheet::after{
+    content:""; position:absolute; top:0; right:0; width:0; height:0;
+    border-style:solid; border-width:0 16px 16px 0;
+    border-color:transparent var(--paper) transparent transparent;
+    filter:drop-shadow(-1px 1px 0 var(--ink));
+  }
+  .sheet .tag{font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:0.06em; text-transform:uppercase; color:var(--teal-deep);}
+  .sheet h3{font-size:16.5px; margin:8px 0 4px;}
+  .sheet .org{font-size:12.5px; color:var(--ink-soft); font-family:'IBM Plex Mono', monospace; margin-bottom:10px; display:block;}
+  .sheet ul{margin:0; padding-left:18px;}
+  .sheet li{font-size:13.5px; color:var(--ink-soft); margin-bottom:6px;}
+  .sheet .link-note{margin-top:10px; font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--ink-soft); word-break:break-all;}
+  .sheet .link-note a{color:var(--teal-deep);}
+
+  /* ---------- SCREENSHOT PLACEHOLDER ---------- */
+  .shot-slot{
+    position:relative;
+    aspect-ratio:16/10;
+    border:1px dashed var(--line);
+    background:
+      repeating-linear-gradient(45deg, rgba(27,46,43,0.03) 0 8px, transparent 8px 16px),
+      var(--paper);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:8px; margin-bottom:14px;
+    color:var(--ink-soft);
+  }
+  .shot-slot svg{width:26px; height:26px; opacity:0.5;}
+  .shot-slot span{font-family:'IBM Plex Mono', monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:0.05em; opacity:0.7;}
+  /* To add a real image: replace the .shot-slot div's contents with
+     <img src="images/your-file.jpg" alt="..." style="width:100%;height:100%;object-fit:cover;"> */
+
+  /* ---------- PUBLICATIONS ---------- */
+  .pub{border-left:2px solid var(--ochre); padding:4px 0 4px 16px; margin-bottom:20px;}
+  .pub:last-child{margin-bottom:0;}
+  .pub .cite{font-size:14.5px;}
+  .pub .doi{font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--ink-soft);}
+
+  /* ---------- TRAINING / EDU ---------- */
+  .two-col{display:grid; grid-template-columns:1fr 1fr; gap:44px;}
+  .edu-item{margin-bottom:18px;}
+  .edu-item h3{font-size:15.5px;}
+  .edu-item .meta{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--ink-soft);}
+  .train-item{margin-bottom:16px; font-size:14px; color:var(--ink-soft);}
+  .train-item strong{color:var(--ink);}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:52px 0 60px;}
+  .foot-grid{display:flex; flex-wrap:wrap; justify-content:space-between; gap:24px; align-items:flex-end;}
+  footer h2{font-size:24px; max-width:14ch;}
+  .foot-links{font-family:'IBM Plex Mono', monospace; font-size:13px; display:flex; flex-direction:column; gap:8px; align-items:flex-end;}
+  .foot-links a{text-decoration:none; color:var(--ink); border-bottom:1px solid var(--line);}
+  .foot-links a:hover{color:var(--rust); border-color:var(--rust);}
+  .fine{margin-top:40px; font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--ink-soft); text-align:center;}
+
+  @media (max-width:760px){
+    nav ul{display:none;}
+    .about-grid, .two-col{grid-template-columns:1fr;}
+    .foot-grid{flex-direction:column; align-items:flex-start;}
+    .foot-links{align-items:flex-start;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+  .reveal{opacity:0; transform:translateY(10px); transition:opacity .5s ease, transform .5s ease;}
+  .reveal.in{opacity:1; transform:none;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">M. ISMAIL <span>HOSSAIN</span></a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <svg class="contours" viewBox="0 0 920 520" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <g fill="none" stroke="#2F6459" stroke-width="1">
+      <path d="M -50 380 C 150 320, 300 420, 500 360 S 850 300, 1000 380" opacity="0.35"/>
+      <path d="M -50 410 C 160 350, 320 450, 520 390 S 860 330, 1000 410" opacity="0.3"/>
+      <path d="M -50 440 C 170 380, 340 480, 540 420 S 870 360, 1000 440" opacity="0.25"/>
+      <path d="M -50 470 C 180 410, 360 510, 560 450 S 880 390, 1000 470" opacity="0.2"/>
+    </g>
+    <g fill="none" stroke="#B98B3E" stroke-width="1">
+      <path d="M -50 60 C 120 20, 260 100, 430 50 S 760 -10, 1000 60" opacity="0.3"/>
+      <path d="M -50 90 C 130 50, 280 130, 450 80 S 780 20, 1000 90" opacity="0.22"/>
+    </g>
+    <circle cx="640" cy="150" r="3" fill="#8B4A3D"/>
+    <line x1="640" y1="150" x2="640" y2="130" stroke="#8B4A3D" stroke-width="1"/>
+  </svg>
+  <div class="wrap">
+    <span class="stamp"><span class="dot"></span>23.81&#176; N, 90.41&#176; E &mdash; DHAKA, BANGLADESH</span>
+    <h1>Md Ismail<br>Hossain</h1>
+    <div class="role">Geospatial Data Analyst &amp; GeoAI Researcher</div>
+    <p class="lede">Five-plus years turning spatial and mobility data into decisions for public health and development programs across Bangladesh and the Greater Mekong &mdash; now extending that work into GeoAI-based image analysis and feature extraction for humanitarian and resource-constrained settings.</p>
+    <div class="links">
+      <a class="btn primary" href="mailto:ismailahmed.du@gmail.com">Email me &rarr;</a>
+      <a class="btn" href="https://www.linkedin.com/in/ismailgeo" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="tel:+8801712889804">+880 1712 889804</a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="head-row">
+      <span class="eyebrow">01 / Field notes</span>
+      <h2>About</h2>
+    </div>
+    <div class="about-grid">
+      <div class="reveal">
+        <p>I build interactive dashboards, automate GIS workflows, and translate complex spatial and mobility data into decisions for public health and development projects. My work applies remote sensing, GIS, and spatial machine learning in humanitarian and resource-constrained settings &mdash; with a growing focus on GeoAI-based image analysis and feature extraction.</p>
+        <p>I hold an MS in Geography and Environment (Urban and Regional Planning and Development) and a BS in Geography and Environment, both from the University of Dhaka. My research interests center on GeoAI and spatial machine learning applied to public health, disaster risk, and urban infrastructure across the Global South.</p>
+      </div>
+      <div class="stat-legend reveal">
+        <div class="stat"><span class="l">Years in GIS &amp; remote sensing</span><span class="n">5+</span></div>
+        <div class="stat"><span class="l">Villages mapped, Lama Upazila</span><span class="n">644</span></div>
+        <div class="stat"><span class="l">Health workers trained, APMEN</span><span class="n">263+</span></div>
+        <div class="stat"><span class="l">Ministries tracked, NSSS M&amp;E</span><span class="n">38</span></div>
+        <div class="stat"><span class="l">Countries, SALB boundaries project</span><span class="n">22</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="head-row">
+      <span class="eyebrow">02 / Legend</span>
+      <h2>Technical Skills</h2>
+    </div>
+    <div class="skill-grid">
+      <div class="skill-card"><div class="swatch"></div><h3>GIS &amp; Spatial Analysis</h3><p>Geoprocessing, settlement &amp; infrastructure mapping, raster/vector processing, change detection, accessibility modeling, cartography, data QA.</p></div>
+      <div class="skill-card"><div class="swatch" style="background:var(--teal)"></div><h3>Remote Sensing &amp; EO</h3><p>Google Earth Engine, land-use/land-cover analysis, satellite-image preprocessing, terrain &amp; environmental analysis, ML for remote sensing, GeoAI feature extraction.</p></div>
+      <div class="skill-card"><div class="swatch" style="background:var(--rust)"></div><h3>Programming &amp; Automation</h3><p>Python for geospatial analysis, R programming, workflow automation, data cleaning &amp; preprocessing, spatial visualization, analytical scripting.</p></div>
+      <div class="skill-card"><div class="swatch"></div><h3>WebGIS &amp; Dashboards</h3><p>Leaflet, R Shiny, Flexdashboard, Esri Dashboards, interactive geospatial dashboards, web-mapping applications.</p></div>
+      <div class="skill-card"><div class="swatch" style="background:var(--teal)"></div><h3>Tools &amp; Software</h3><p>ArcGIS Pro, QGIS, Google Earth Engine, ERDAS IMAGINE, Pix4D, AccessMod 5, KOBO Toolbox, Microsoft Office.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="head-row">
+      <span class="eyebrow">03 / Route</span>
+      <h2>Professional Experience</h2>
+    </div>
+    <div class="route">
+
+      <div class="waypoint reveal">
+        <div class="wp-head">
+          <div><h3>Spatial Data Analyst</h3><span class="wp-org">GroupMappers &mdash; Dhaka, Bangladesh</span></div>
+          <span class="wp-date">Dec 2022 &ndash; Feb 2025</span>
+        </div>
+        <div class="wp-body"><ul>
+          <li>Designed and implemented GIS workflows and mapping standards for village-level geospatial data collection in the Chittagong Hill Tracts, focusing on settlements and infrastructure.</li>
+          <li>Trained GIS teams on digitization standards, field data-collection methods, and QA procedures.</li>
+          <li>Performed spatial data validation and quality control on field-collected datasets.</li>
+          <li>Built interactive geospatial dashboards to monitor malaria cases under the National Malaria Elimination Program.</li>
+        </ul></div>
+      </div>
+
+      <div class="waypoint reveal">
+        <div class="wp-head">
+          <div><h3>Data Consultant</h3><span class="wp-org">Mahidol Oxford Tropical Medicine Research Unit (MORU) &mdash; Remote</span></div>
+          <span class="wp-date">Aug 2022 &ndash; Nov 2022</span>
+        </div>
+        <div class="wp-body"><ul>
+          <li>Analyzed large-scale mobility datasets from Facebook, Google, Apple, and CDRs across Bangladesh, Cambodia, Lao PDR, Myanmar, Thailand, and Vietnam.</li>
+          <li>Wrote Python and R scripts to automate data cleaning, geospatial analysis, visualization, and reporting.</li>
+          <li>Produced analytical maps, charts, and interactive visualizations for public-health planning.</li>
+          <li>Contributed to technical reports and presented findings at a regional workshop in Bangkok, Thailand.</li>
+        </ul></div>
+      </div>
+
+      <div class="waypoint reveal">
+        <div class="wp-head">
+          <div><h3>GIS Developer</h3><span class="wp-org">GMGI Solutions Ltd &mdash; Dhaka, Bangladesh</span></div>
+          <span class="wp-date">Nov 2020 &ndash; Jul 2022</span>
+        </div>
+        <div class="wp-body"><ul>
+          <li>Managed and processed large geospatial datasets, including topology correction, metadata updates, georeferencing, and standardization.</li>
+          <li>Developed interactive GIS dashboards and web-based geospatial visualizations using R and web-mapping tools.</li>
+          <li>Designed improved georeferencing and digitization workflows for Mouza maps.</li>
+        </ul></div>
+      </div>
+
+      <div class="waypoint reveal">
+        <div class="wp-head">
+          <div><h3>Data Consultant</h3><span class="wp-org">Mahidol Oxford Tropical Medicine Research Unit (MORU) &mdash; Remote</span></div>
+          <span class="wp-date">May 2020 &ndash; Oct 2020</span>
+        </div>
+        <div class="wp-body"><ul>
+          <li>Conducted GIS-based analysis of Facebook mobility data to understand population movement during COVID-19.</li>
+          <li>Created geospatial visualizations, charts, and statistical outputs using Python and R.</li>
+          <li>Ran accessibility analysis of healthcare facilities across Bangladesh using AccessMod 5.</li>
+        </ul></div>
+      </div>
+
+      <div class="waypoint reveal">
+        <div class="wp-head">
+          <div><h3>GIS Expert</h3><span class="wp-org">Mass Dog Vaccination Project &mdash; CDC / DGHS / Ministry of Health &amp; Family Welfare, Bangladesh</span></div>
+          <span class="wp-date">Apr 2018 &ndash; Feb 2020</span>
+        </div>
+        <div class="wp-body"><ul>
+          <li>Demarcated union-wise maps using Google Earth and ArcGIS for nationwide dog-vaccination coverage planning.</li>
+          <li>Trained field collectors on KoBoCollect, produced SPSS-based reporting, monitored field data centrally.</li>
+          <li>Produced Upazila-level maps showing vaccinated-dog locations and coverage.</li>
+        </ul></div>
+      </div>
+
+      <div class="waypoint reveal">
+        <div class="wp-head">
+          <div><h3>Field Surveyor</h3><span class="wp-org">Barishal City Corporation Master Planning, UDD, Ministry of Housing &amp; Public Works</span></div>
+          <span class="wp-date">Jul 2019 &ndash; Aug 2019</span>
+        </div>
+        <div class="wp-body"><ul>
+          <li>Digitized physical features and conducted field surveys of infrastructure for the city's master planning process.</li>
+        </ul></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="head-row">
+      <span class="eyebrow">04 / Map sheets</span>
+      <h2>Project Experience</h2>
+    </div>
+    <div class="project-grid">
+
+      <div class="sheet reveal">
+        <div class="shot-slot" data-project="ukaid-drr">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="8.5" cy="10" r="1.5"/><path d="M3 16l5-5 4 4 3-3 6 6"/></svg>
+          <span>Screenshot placeholder</span>
+        </div>
+        <span class="tag">DRR &middot; MEAL Dashboard</span>
+        <h3>UKAID Livelihoods &amp; Disaster Risk Reduction</h3>
+        <span class="org">Client: British Red Cross / IFRC / BDRCS &middot; via GMGI Solutions Ltd, Barishal &middot; May&ndash;Jul 2022</span>
+        <ul>
+          <li>FCDO-funded 3-year livelihoods &amp; DRR project across 16 urban slum communities of Barishal City Corporation.</li>
+          <li>Built a web-based Geospatial Monitoring Dashboard (GMD) for result-based M&amp;E, plus digitized business and entrepreneurship tracking platforms.</li>
+          <li>Trained field staff on using the digitized tools.</li>
+        </ul>
+      </div>
+
+      <div class="sheet reveal">
+        <div class="shot-slot" data-project="undp-coxsbazar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="8.5" cy="10" r="1.5"/><path d="M3 16l5-5 4 4 3-3 6 6"/></svg>
+          <span>Screenshot placeholder</span>
+        </div>
+        <span class="tag">M&amp;E &middot; Development Planning</span>
+        <h3>Geospatial Dashboard for District Development Plan &mdash; Cox&rsquo;s Bazar</h3>
+        <span class="org">UNDP &middot; via GMGI Solutions Ltd, Chattogram Division</span>
+        <ul>
+          <li>Built with R Shiny to support Bangladesh's medium-term development planning for Cox's Bazar following the 2017 refugee influx.</li>
+          <li>Physical Feature Map, upazila/union Priority Maps (GoB vs. community projects), Investment Status budget tracker, and a downloadable Data View.</li>
+        </ul>
+        <div class="link-note">gtcl.shinyapps.io/undpddp (login required)</div>
+      </div>
+
+      <div class="sheet reveal">
+        <div class="shot-slot" data-project="apmen-malaria">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="8.5" cy="10" r="1.5"/><path d="M3 16l5-5 4 4 3-3 6 6"/></svg>
+          <span>Screenshot placeholder</span>
+        </div>
+        <span class="tag">Malaria Surveillance</span>
+        <h3>APMEN Malaria Surveillance Project &mdash; Lama, Bandarban</h3>
+        <span class="org">APLMA-funded &middot; with NMEP, BRAC, EKATA &middot; via GroupMappers, with MORU/Oxford &middot; Nov 2022&ndash;Mar 2023</span>
+        <ul>
+          <li>Led village-level real-time malaria case data collection across Lama Upazila's 7 unions (644 villages mapped).</li>
+          <li>Built the monitoring dashboard in R / R Shiny, combining KoBo Toolbox, SMS/USSD, and paper-based reporting.</li>
+          <li>Trained ~263 health workers across 5 unions; tracked 98 cases Jan&ndash;Mar 2023.</li>
+        </ul>
+      </div>
+
+      <div class="sheet reveal">
+        <div class="shot-slot" data-project="itpa-trackers">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="8.5" cy="10" r="1.5"/><path d="M3 16l5-5 4 4 3-3 6 6"/></svg>
+          <span>Screenshot placeholder</span>
+        </div>
+        <span class="tag">Village Mapping &middot; Malaria Tracking</span>
+        <h3>ITPA &mdash; Malaria API Tracker &amp; Village Tracker</h3>
+        <span class="org">via GroupMappers, Lama Upazila, Bandarban</span>
+        <ul>
+          <li>Built two R Shiny dashboards: a participatory Malaria API Tracker for NMEATDCP, and a Lama Upazila Village Tracker with feature maps and a union-filterable village master list.</li>
+          <li>Led the underlying village mapping for Lama Upazila.</li>
+        </ul>
+        <div class="link-note">groupmappers.shinyapps.io/lamavillagemap (login required)</div>
+      </div>
+
+      <div class="sheet reveal">
+        <div class="shot-slot" data-project="nsss">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="8.5" cy="10" r="1.5"/><path d="M3 16l5-5 4 4 3-3 6 6"/></svg>
+          <span>Screenshot placeholder</span>
+        </div>
+        <span class="tag">M&amp;E Dashboard</span>
+        <h3>National Social Security Strategy (NSSS)</h3>
+        <span class="org">UNDP, Dhaka &middot; Nov 2022&ndash;Apr 2023</span>
+        <ul>
+          <li>Designed a web-based M&amp;E dashboard tracking NSSS reforms across 38 government ministries.</li>
+          <li>Integrated dynamic reporting, charts, document management, and real-time monitoring.</li>
+        </ul>
+      </div>
+
+      <div class="sheet reveal">
+        <div class="shot-slot" data-project="salb">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="8.5" cy="10" r="1.5"/><path d="M3 16l5-5 4 4 3-3 6 6"/></svg>
+          <span>Screenshot placeholder</span>
+        </div>
+        <span class="tag">Global Boundaries &middot; UN Initiative</span>
+        <h3>Second Administrative Level Boundaries (SALB)</h3>
+        <span class="org">United Nations &middot; via GroupMappers &middot; Feb&ndash;Jun 2023</span>
+        <ul>
+          <li>Helped produce Bangladesh's administrative boundary change data for this global UN initiative.</li>
+          <li>Monitored contributor work across the project, which covered 22 countries in total.</li>
+        </ul>
+      </div>
+
+      <div class="sheet reveal">
+        <div class="shot-slot" data-project="crisis-ready">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="8.5" cy="10" r="1.5"/><path d="M3 16l5-5 4 4 3-3 6 6"/></svg>
+          <span>Screenshot placeholder</span>
+        </div>
+        <span class="tag">Mobility Data &middot; Public Health</span>
+        <h3>Crisis Ready Project</h3>
+        <span class="org">MORU / University of Oxford &middot; Aug&ndash;Nov 2022</span>
+        <ul>
+          <li>Analyzed Facebook, Google, Apple, and Call Detail Record (CDR) mobility data across South/Southeast Asia using Python, R, and ArcGIS Pro.</li>
+          <li>Shared results at a regional workshop in Bangkok, Thailand (Feb 2023).</li>
+        </ul>
+      </div>
+
+      <div class="sheet reveal">
+        <div class="shot-slot" data-project="moru-accessibility-2020">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="8.5" cy="10" r="1.5"/><path d="M3 16l5-5 4 4 3-3 6 6"/></svg>
+          <span>Screenshot placeholder</span>
+        </div>
+        <span class="tag">Accessibility Analysis &middot; COVID-19</span>
+        <h3>Health Accessibility &amp; COVID Mobility Analysis</h3>
+        <span class="org">MORU / University of Oxford &middot; 2020</span>
+        <ul>
+          <li>Ran accessibility analysis of Bangladesh health centers using AccessMod.</li>
+          <li>Built an ArcGIS dashboard tracking Cambodia's COVID-19 case data; processed and reported on Facebook mobility data.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="publications">
+  <div class="wrap">
+    <div class="head-row">
+      <span class="eyebrow">05 / Citations</span>
+      <h2>Publications</h2>
+    </div>
+    <div class="pub reveal">
+      <p class="cite">Mahboob, M., Saha, M., &amp; Hossain, M.I. (2023). &ldquo;Spatial assessment of the seasonal impact of brickfields on air pollution in Dhaka metropolitan area using ordination techniques.&rdquo; <em>Air Quality, Atmosphere &amp; Health.</em></p>
+      <span class="doi">DOI: 10.1007/s11869-023-01345-w</span>
+    </div>
+    <div class="pub reveal">
+      <p class="cite">Hossain, Md. I., Haq, K. Md. F., &amp; Sium, S. M. (2025). &ldquo;River process in active Ganges floodplain region using DSAS.&rdquo; <em>International Journal of Hydrology Science and Technology</em>, 20(4), 468&ndash;490.</p>
+      <span class="doi">DOI: 10.1504/ijhst.2025.149765</span>
+    </div>
+  </div>
+</section>
+
+<section id="training">
+  <div class="wrap">
+    <div class="head-row">
+      <span class="eyebrow">06 / Reference points</span>
+      <h2>Education &amp; Training</h2>
+    </div>
+    <div class="two-col">
+      <div class="reveal">
+        <h3 style="font-size:14px; text-transform:uppercase; letter-spacing:0.05em; color:var(--ink-soft); margin-bottom:16px;">Education</h3>
+        <div class="edu-item">
+          <h3>MS, Geography and Environment</h3>
+          <div class="meta">University of Dhaka &middot; 2019 &middot; Urban and Regional Planning and Development</div>
+        </div>
+        <div class="edu-item">
+          <h3>BS, Geography and Environment</h3>
+          <div class="meta">University of Dhaka &middot; 2018</div>
+        </div>
+        <div class="edu-item">
+          <h3>Languages</h3>
+          <div class="meta">English &mdash; Fluent &middot; Bengali &mdash; Native</div>
+        </div>
+      </div>
+      <div class="reveal">
+        <h3 style="font-size:14px; text-transform:uppercase; letter-spacing:0.05em; color:var(--ink-soft); margin-bottom:16px;">Training &amp; Presentations</h3>
+        <div class="train-item"><strong>Workshop Presenter</strong> &mdash; &ldquo;Facebook vs Google vs Apple for Lao PDR,&rdquo; Workshop on Use of Mobility Data for Guiding Public Health Responses, Mahidol University, Bangkok (Feb 2023).</div>
+        <div class="train-item"><strong>Associate Trainer, GIS</strong> &mdash; IFRC / WASH Team of Population Movement Operation, Cox&rsquo;s Bazar (Dec 2020).</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <span class="eyebrow">07 / Coordinates</span>
+        <h2>Let&rsquo;s work together, or talk research.</h2>
+      </div>
+      <div class="foot-links">
+        <a href="mailto:ismailahmed.du@gmail.com">ismailahmed.du@gmail.com</a>
+        <a href="tel:+8801712889804">+880 1712 889804</a>
+        <a href="https://www.linkedin.com/in/ismailgeo" target="_blank" rel="noopener">linkedin.com/in/ismailgeo</a>
+        <span>Dhaka, Bangladesh</span>
+      </div>
+    </div>
+    <div class="rule" style="margin-top:40px;"></div>
+    <p class="fine">&copy; <span id="year"></span> Md Ismail Hossain &middot; Built for GeoAI, public health, and disaster-risk work</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    },{threshold:0.12});
+    revealEls.forEach(el=>io.observe(el));
+  } else {
+    revealEls.forEach(el=>el.classList.add('in'));
+  }
+</script>
+
+</body>
+</html>
